@@ -380,5 +380,180 @@ describe('Assert风格', function() {
 });
 
 describe('Expect风格', function() {
+    // .not
+    it('否定断言', function() {
+        expect("foo").to.not.equal('bar');
+    });
+
+    // .deep
+    it('深入', function() {
+        expect({
+                foo: {
+                    bar: {
+                        baz: 'quux'
+                    }
+                }
+            })
+            .to.have.deep.property('foo.bar.baz', 'quux');
+
+        // 特殊字符需要在前面加双斜线
+        let deepCss = {
+            '.link': {
+                '[target]': 42
+            }
+        };
+        expect(deepCss).to.have.deep.property('\\.link.\\[target\\]', 42);
+    });
+
+    // .any
+    it('任何', function() {
+        let foo = {
+            bar: ''
+        };
+        expect(foo).to.have.any.keys('bar', 'baz');
+    });
+
+    // .all
+    it('同时有', function() {
+        let foo = {
+            bar: '',
+            baz: ''
+        };
+        expect(foo).to.have.all.keys('bar', 'baz');
+    });
+
+    // .a(type)
+    it('判断类型', function() {
+        expect('test').to.be.a('string');
+        expect({
+            foo: 'bar'
+        }).to.be.an('object');
+        expect(null).to.be.a('null');
+        expect(undefined).to.be.an('undefined');
+        expect(new Error).to.be.an('error');
+        expect(new Float32Array()).to.be.a('float32array');
+        expect(Symbol()).to.be.a('symbol');
+    });
+
+    // .include(value)
+    it('包含', function() {
+        expect([1, 2, 3]).to.include(2);
+        expect('foobar').to.contain('foo');
+        expect({
+            foo: 'bar',
+            hello: 'universe'
+        }).to.include.keys('foo')
+    });
+
+    // .ok
+    it('断言是真实的', function() {
+        expect('everything').to.be.ok;
+        expect(1).to.be.ok;
+        expect(false).to.not.be.ok;
+        expect(undefined).to.not.be.ok;
+        expect(null).to.not.be.ok
+    });
+
+    // .true
+    it('断言是真的', function() {
+        expect(true).to.be.true;
+        expect(1).to.not.be.true;
+    });
+
+    // .false
+    // .null
+    // .undefined
+    // .NaN
+
+    // .exist
+    it('存在', function() {
+        var foo = 'hi',
+            bar = null,
+            baz;
+        expect(foo).to.exist;
+        expect(bar).to.not.exist;
+        expect(baz).to.not.exist;
+    });
+
+    // .empty 是空字符
+    // .arguments 是arguments对象
+
+    // .equal(value)
+    it('对比和深入对比', function() {
+        expect('hello').to.equal('hello');
+        expect(42).to.equal(42);
+        expect(1).to.not.equal(true);
+        expect({
+            foo: 'bar'
+        }).to.not.equal({
+            foo: 'bar'
+        });
+        expect({
+            foo: 'bar'
+        }).to.deep.equal({
+            foo: 'bar'
+        })
+    });
+
+
+    // .eql(value)
+    it('深入对比', function() {
+        expect({
+            foo: 'bar'
+        }).to.eql({
+            foo: 'bar'
+        });
+        expect([1, 2, 3]).to.eql([1, 2, 3]);
+    });
+
+    // .above(value)
+    it('目标大于值', function() {
+        expect(10).to.be.above(5);
+        expect('foo').to.have.length.above(2);
+        expect([1, 2, 3]).to.have.length.above(2);
+    });
+
+    // .least(value) 大于或等于
+    // .below(value) 小于
+    // .most(value) 小于或等于
+
+    // .within(start, finish)
+    it('在指定的范围', function() {
+        expect(7).to.be.within(5, 10);
+        expect('foo').to.have.length.within(2, 4);
+        expect([1, 2, 3]).to.have.length.within(2, 4);
+    });
+
+    // .instanceof(constructor) 
+    it('属于指定接口的实例', function() {
+        var Tea = function(name) {
+                this.name = name;
+            },
+            Chai = new Tea('chai');
+        expect(Chai).to.be.an.instanceof(Tea);
+        expect([1, 2, 3]).to.be.instanceof(Array);
+    });
+
+    // .property(name, [value])
+    // .ownProperty(name)
+    // .ownPropertyDescriptor(name[, descriptor[, message]])
+    // .length
+    // .lengthOf(value[, message])
+    // .match(regexp)
+    // .string(string)
+    // .keys(key1, [key2], […])
+    // .throw(constructor)
+    // .respondTo(method)
+    // .itself
+    // .satisfy(method)
+    // .closeTo(expected, delta)
+    // .members(set)
+    // .oneOf(list)
+    // .change(function)
+    // .increase(function)
+    // .decrease(function)
+    // .extensible
+    // .sealed
+    // .frozen
 
 });
