@@ -1,0 +1,28 @@
+{
+    "name": "mocha_chai_example",
+    "version": "1.0.0",
+    "description": "mocha和chai使用例子",
+    "main": "mocha.test.js",
+    "scripts": {
+        "test": "./node_modules/.bin/mocha test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/leoskey/mocha-chai-example.git"
+    },
+    "keywords": [
+        "mocha",
+        "chai",
+        "example"
+    ],
+    "author": "leoskey",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/leoskey/mocha-chai-example/issues"
+    },
+    "homepage": "https://github.com/leoskey/mocha-chai-example#readme",
+    "dependencies": {
+        "chai": "^3.5.0",
+        "mocha": "^3.1.2"
+    }
+}
