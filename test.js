@@ -2,7 +2,11 @@
 
 /**
  *  使用Mocha、Chai进行单元测试。
+ *
+ *  TDD(assert)
+ *  BDD(expect,should)
  */
+
 const chai = require('chai'),
     assert = chai.assert,
     expect = chai.expect,
@@ -373,5 +377,8 @@ describe('Assert风格', function() {
     });
 
     // .isNotFrozen(object)
+});
+
+describe('Expect风格', function() {
 
 });
