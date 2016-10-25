@@ -5,7 +5,7 @@
     "main": "mocha.test.js",
     "scripts": {
         "test": "mocha test.js",
-        "cov": "istanbul cover node_modules/mocha/bin/_mocha && coveralls"
+        "cov": "istanbul cover node_modules/mocha/bin/_mocha && cat ./coverage/lcov.info | coveralls"
     },
     "repository": {
         "type": "git",
