@@ -1,10 +1,11 @@
 {
-    "name": "mocha_chai_example",
+    "name": "mocha-chai-example",
     "version": "1.0.0",
     "description": "mocha和chai使用例子",
     "main": "mocha.test.js",
     "scripts": {
-        "test": "./node_modules/.bin/mocha test.js"
+        "test": "mocha test.js",
+        "cov": "istanbul cover node_modules/mocha/bin/_mocha"
     },
     "repository": {
         "type": "git",
@@ -22,7 +23,9 @@
     },
     "homepage": "https://github.com/leoskey/mocha-chai-example#readme",
     "dependencies": {
-        "chai": "^3.5.0",
-        "mocha": "^3.1.2"
+        "chai": "~3.5.0",
+        "coveralls": "~2.11.14",
+        "istanbul": "~0.4.5",
+        "mocha": "~3.1.2"
     }
 }
