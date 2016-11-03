@@ -6,6 +6,6 @@
 
 # 使用
 ```cmd
-$ npm install
+$ npm install mocha-chai-example
 $ npm test
 ```
